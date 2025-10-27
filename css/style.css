@@ -1,1 +1,121 @@
- 
+/*Margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor centrado y responsive para el contenido */
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Estilos del header */
+.empresa-header {
+    background-color: #fff6e7; /* beige más claro */
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Logo responsive ,se adapta fluidamente entre un mínimo y un máximo */
+.empresa-logo {
+    display: block;
+    width: clamp(80px, 12vw, 160px); /* mínimo 80px, relativo al viewport, maximo 160px */
+    height: auto; /* mantiene la proporcion */
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.empresa-header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 1.125rem;
+}
+
+/* Estilos del menu de navegacion */
+.menu-principal {
+    background-color: black;
+    width: 100%;
+    /* Aplicamos Flexbox al nav */
+    display: flex;
+    justify-content: center; /* centra la lista dentro del nav */
+    align-items: center;
+    position: relative;
+}
+
+.menu-lista {
+    /* Flexbox para la lista */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* Distribuye espacio de forma uniforme y ocupa todo el ancho */
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    padding: 1rem;
+    /* Aseguramos que la lista ocupe un ancho máximo adecuado */
+    width: 100%;
+}
+
+.menu-lista li {
+    /* Flex item */
+    flex: 0 1 auto;
+    padding: 0 1rem;
+}
+
+.menu-lista a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    /* Hacemos que los enlaces sean flex containers también */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.menu-lista a:hover {
+    color: #ddd;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Ajustes responsive para logo y menu*/
+@media (max-width: 600px) {
+    /* En moviles el clamp ya ajusta, pero aseguramos buena visibilidad */
+    .empresa-logo { width: clamp(64px, 20vw, 100px); }
+    /* En pantallas pequeñas apilamos el menú verticalmente y cada enlace ocupa todo el ancho */
+    .menu-lista { 
+        padding: 0.4rem 0;
+        gap: 0;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .menu-lista li { padding: 0; }
+    .menu-lista a { 
+        font-size: 1rem; 
+        padding: 0.75rem 1rem; 
+        display: block; 
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+}
+
+/* Mejoras de accesibilidad y foco */
+.menu-lista a:focus{
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
