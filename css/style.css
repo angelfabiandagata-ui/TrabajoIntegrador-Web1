@@ -129,7 +129,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1200px;
+  max-width: auto;
   position: relative;
   margin: auto;
 }
