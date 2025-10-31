@@ -134,7 +134,7 @@ img {vertical-align: middle;}
   margin: auto;
 }
 
-/* Next & previous buttons */
+/* botones para avanzar o retroceder */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -150,20 +150,21 @@ img {vertical-align: middle;}
   user-select: none;
 }
 
-/* Position the "next button" to the right */
+/* Posicion del boton */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
+/* Cambio de color al pasar con el mouse */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Caption text */
+/* Texto de la imagen*/
 .text {
   color: #f2f2f2;
+  
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -172,7 +173,7 @@ img {vertical-align: middle;}
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
+/* Numero en la imagen (1/5) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -181,7 +182,7 @@ img {vertical-align: middle;}
   top: 0;
 }
 
-/* The dots/bullets/indicators */
+/* Indicadores */
 .dot {
   cursor: pointer;
   height: 15px;
@@ -197,7 +198,7 @@ img {vertical-align: middle;}
   background-color: #717171;
 }
 
-/* Fading animation */
+/* Fading */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -208,7 +209,33 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+/*Contenedor Amarillo*/
+.boxConteiner{
+  height: 120px;
+  width: auto;
+  background-color: rgba(255, 255, 0, 0.858);
+  position: relative;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 30px;
+  color: black;
+  font-style: italic;
+
 }
+
+/*Responsive del contenedor amariilo*/
+
+@media only screen and (max-width: 600px) {
+  .boxConteiner{font-size: 14px}
+  .texBox {font-size: 14px;}
+
+}
+  
+
+
+/* Responsive del carrusel */
+@media only screen and (max-width: 300px) {
+ .prev, .next,.text {font-size: 11px}
+}
+
