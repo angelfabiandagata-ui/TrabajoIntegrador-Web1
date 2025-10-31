@@ -209,6 +209,15 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
+
+/* Responsive del carrusel */
+@media only screen and (max-width: 300px) {
+ .prev, .next,.text {font-size: 11px}
+}
+
+
+
+
 /*Contenedor Amarillo*/
 .boxConteiner{
   height: 120px;
@@ -231,11 +240,34 @@ img {vertical-align: middle;}
   .texBox {font-size: 14px;}
 
 }
+
+/*Contenedor Footer*/
   
+.empresa-footer{
+  max-height: 350px;
+  min-height: 120px;
+  width: auto;
+  color: white;
+  background-color: black;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
 
-
-/* Responsive del carrusel */
-@media only screen and (max-width: 300px) {
- .prev, .next,.text {font-size: 11px}
 }
+
+/*Tamaño Maximo de las columnas en el footer*/
+.footer-col {
+  width: 250px; 
+
+}
+
+/*Responsive del Footer*/
+
+@media only screen and (max-width: 600px) {
+  .empresa-footer{font-size: 08px;}
+  
+}
+
+
 
