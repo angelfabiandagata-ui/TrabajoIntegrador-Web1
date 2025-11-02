@@ -262,6 +262,118 @@ body {
   .mis-hitos{flex-direction: column;}
 }
 
+/* Bloque de párrafos que ocupa el ancho total del contenido (debajo de las imágenes y textos) */
+.historia-full{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.historia-full p{
+  font-size: 1.125rem; /* igual que .historia-parrafo */
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
+}
+
+/* Asegurar que todos los párrafos relacionados con Historia usen el mismo tamaño */
+.historia-textos p,
+.historia-full p,
+.galeria-text,
+.mis-hitos .detalle,
+.cuadrito .detalle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Galería de historia: 4 imágenes por fila en desktop, responsive con wrap */
+.historia-galeria{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.historia-galeria .galeria-item{
+  flex: 0 1 calc(25% - 1rem);
+  min-width: 140px; /* evita que las imágenes queden demasiado pequeñas */
+}
+
+.historia-galeria .galeria-item img{
+  width: 100%;
+  height: 200px; /* más grandes como pediste */
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 768px){
+  .historia-galeria .galeria-item{ flex: 0 1 calc(50% - 1rem); }
+  .historia-galeria .galeria-item img{ height: 180px; }
+}
+
+@media (max-width: 480px){
+  .historia-galeria .galeria-item{ flex: 0 1 100%; }
+  .historia-galeria .galeria-item img{ height: auto; }
+}
+
+/* Hover / focus: aclaran la imagen y hacen una pequeña escala suave */
+.historia-galeria .galeria-item{
+  overflow: hidden; /* evitar que la imagen escalada sobresalga */
+}
+
+.historia-galeria .galeria-item img{
+  transition: filter 220ms ease, transform 220ms ease;
+  will-change: transform, filter;
+  cursor: pointer;
+}
+
+.historia-galeria .galeria-item:hover img,
+.historia-galeria .galeria-item:focus-within img,
+.historia-galeria .galeria-item img:focus{
+  filter: brightness(1.18) saturate(1.03);
+  transform: scale(1.04); /* un pelín más grande al hover */
+}
+
+/* Estilos para el bloque debajo de la galería */
+.galeria-info{
+  margin-top: 1.25rem;
+  width: 100%; /* ocupar todo el ancho del contenedor */
+  text-align: left; /* alineado al inicio para ocupar todo el ancho */
+  padding: 0; /* el contenedor ya tiene padding */
+}
+
+.galeria-titulo{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  color: #8b3e2f; /* tono cálido, destaca */
+  font-weight: 700;
+  text-align: left;
+}
+
+.galeria-titulo::after{
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #f2c089;
+  margin: 0.6rem 0 0; /* alineada a la izquierda */
+  border-radius: 2px;
+}
+
+.galeria-text{
+  max-width: 100%; /* ocupar todo el ancho disponible */
+  margin: 0.8rem 0 0;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
 /* Ajustes responsive para logo y menu*/
 @media (max-width: 600px) {
   /* En móviles: reduzco el logo y hago que cada producto ocupe todo el ancho */
@@ -419,23 +531,45 @@ img {vertical-align: middle;}
 /* Caja amarilla: sección destacada para mensajes (tipo banner) */
 .boxConteiner{
   height: 120px;
-  width: auto;
-  background-color: rgba(255, 255, 0, 0.858);
-  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 0, 0.95);
+  display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding-top: 50px;
+  padding: 0 1rem;
   font-size: 30px;
   color: black;
   font-style: italic;
+}
 
+.boxConteiner .textBox{
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+/* Imagen final centrada (tamaño medio) */
+.historia-final-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1.25rem 0;
+}
+
+.historia-final{
+  width: clamp(260px, 45%, 560px); /* tamaño medio, responsive */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
 }
 
 /* Responsive de la caja amarilla: reduzco texto en móviles */
 @media only screen and (max-width: 600px) {
-  .boxConteiner{font-size: 14px}
-  .texBox {font-size: 14px;}
+  .boxConteiner{font-size: 16px}
+  .boxConteiner .textBox {font-size: 14px;}
 
+  .historia-final{ width: 90%; }
 }
 
 /* Footer: diseño en 3 columnas con fondo oscuro y logo */
