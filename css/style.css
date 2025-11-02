@@ -157,7 +157,112 @@ body {
     margin: 0;
 }
 
-/* Ajustes responsive para logo y menú */
+/* Estilos para la sección 'Historia': título a la izquierda, textos y imagen a la derecha con la misma altura */
+.historia-section {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch; /* hace que ambos lados tengan la misma altura */
+  margin: 2rem 0;
+}
+
+.historia-left {
+  /* Doy más espacio al texto: que ocupe alrededor del 70% en desktop */
+  flex: 1 1 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/* permitir que el lado izquierdo pueda reducir su altura dentro del flex (fix overflow) */
+.historia-left { min-height: 0; }
+
+.historia-titulo {
+  text-align: left;
+  /* Hago que el título destaque: serif, más grande, y con acento lateral */
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.6rem;
+  margin: 0 0 1rem 0;
+  color: #000; /* ahora negro como pediste */
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  padding-left: 0.75rem;
+  border-left: 6px solid #f2c089; /* barra decorativa */
+  position: relative;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.04);
+}
+
+.historia-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.historia-parrafo {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
+}
+
+.historia-right {
+  /* Imagen todavía más chica: aprox 30% del ancho en desktop */
+  flex: 0 0 30%;
+  max-width: 30%;
+  display: flex;
+}
+/* Evito que la imagen desborde: permito que el contenedor reduzca y oculto overflow */
+.historia-right { min-height: 0; overflow: hidden; }
+
+.historia-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* rellena el contenedor y mantiene proporción */
+  object-position: center; /* centro la porción mostrada */
+  border-radius: 8px;
+  display: block;
+  max-height: 100%;
+}
+/* Asegurar que la imagen no exceda el 100% de la caja */
+.historia-imagen { max-height: 100%; }
+
+/* mis-hitos: tres cuadritos (nombres de clase tipo estudiante) */
+.mis-hitos{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cuadrito{
+  flex: 1 1 0;
+  background-color: #fafafa;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.anio{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.4rem;
+}
+
+.detalle{
+  font-size: 0.98rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Responsive: en pantallas pequeñas apilar los cuadritos */
+@media (max-width: 768px){
+  .mis-hitos{flex-direction: column;}
+}
+
+/* Ajustes responsive para logo y menu*/
 @media (max-width: 600px) {
   /* En móviles: reduzco el logo y hago que cada producto ocupe todo el ancho */
     .empresa-logo { 
@@ -189,6 +294,23 @@ body {
         width: 100%;
         border-top: 1px solid rgba(255,255,255,0.08);
     }
+}
+
+/* Responsive para la sección historia: en pantallas pequeñas apilo el contenido */
+@media (max-width: 768px) {
+  .historia-section {
+    flex-direction: column;
+  }
+
+  .historia-titulo {
+    text-align: center;
+    font-size: 2rem; /* ajustar tamaño en móvil para que no sea demasiado grande */
+  }
+
+  .historia-imagen {
+    height: auto; /* que la imagen no estire en móvil */
+    width: 100%;
+  }
 }
 
 /* Accesibilidad: muestro un outline claro cuando un enlace del menú tiene foco */
