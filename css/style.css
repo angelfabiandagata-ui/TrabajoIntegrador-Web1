@@ -48,13 +48,15 @@ body {
 
 /* Menú de navegación: lo pongo con flex para que esté en línea en desktop y centrado */
 .menu-principal {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: black;
     width: 100%;
     /* Aplicamos Flexbox al nav */
     display: flex;
     justify-content: center; /* centra la lista dentro del nav */
     align-items: center;
-    position: relative;
 }
 
 .menu-lista {
