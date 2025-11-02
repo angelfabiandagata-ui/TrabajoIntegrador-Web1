@@ -117,7 +117,7 @@ body {
 }
 
 /* Grid de productos: uso flex-wrap para que se hagan filas y gap para separar las cards */
-.productos-grid {
+.productos-grid{
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -139,6 +139,7 @@ body {
     transition: transform 0.2s ease;
 }
 
+
 .producto-item:hover {
     transform: translateY(-5px);
 }
@@ -156,6 +157,56 @@ body {
     color: #333;
     margin: 0;
 }
+
+/*Productos Home*/
+
+.masVendidos{
+  padding-top: 50px;
+  text-align: center;
+}
+
+
+.productos-home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.productoItemHome {
+    flex: 0 1 calc(33.333% - 2rem);
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.productoItemHome:hover {
+    transform: translateY(-5px);
+}
+
+.productoItemHome img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.productoItemHome p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+}
+
+
 
 /* Estilos para la sección 'Historia': título a la izquierda, textos y imagen a la derecha con la misma altura */
 .historia-section {
