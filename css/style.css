@@ -1,4 +1,4 @@
-/*Margin */
+/* margen: quito los márgenes por defecto y activo box-sizing para que todo quede alineado (truco básico) */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-/* Contenedor centrado y responsive para el contenido */
+/* Contenedor central: ancho máximo y padding para que el contenido no toque los bordes - forma simple de hacerlo responsive */
 .container{
     max-width: 1200px;
     margin: 0 auto;
@@ -20,7 +20,7 @@ body {
     gap: 1rem;
 }
 
-/* Estilos del header */
+/* Header: estilos del encabezado (logo + título). Lo dejo simple y centrado) */
 .empresa-header {
     background-color: #fff6e7; /* beige más claro */
     padding: 1rem;
@@ -31,7 +31,7 @@ body {
     gap: 0.25rem;
 }
 
-/* Logo responsive ,se adapta fluidamente entre un mínimo y un máximo */
+/* Logo responsive: uso clamp para que el logo no sea gigante ni muy chico según pantalla */
 .empresa-logo {
     display: block;
     width: clamp(80px, 12vw, 160px); /* mínimo 80px, relativo al viewport, maximo 160px */
@@ -46,7 +46,7 @@ body {
     font-size: 1.125rem;
 }
 
-/* Estilos del menu de navegacion */
+/* Menú de navegación: lo pongo con flex para que esté en línea en desktop y centrado */
 .menu-principal {
     background-color: black;
     width: 100%;
@@ -58,11 +58,11 @@ body {
 }
 
 .menu-lista {
-    /* Flexbox para la lista */
+  /* Uso flex para mostrar los items en fila */
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    /* Distribuye espacio de forma uniforme y ocupa todo el ancho */
+  /* Distribuyo los enlaces de forma pareja y aprovecho el ancho */
     justify-content: space-evenly;
     align-items: center;
     list-style: none;
@@ -72,7 +72,7 @@ body {
 }
 
 .menu-lista li {
-    /* Flex item */
+  /* Cada li es un ítem del flex */
     flex: 0 1 auto;
     padding: 0 1rem;
 }
@@ -81,7 +81,7 @@ body {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    /* Hacemos que los enlaces sean flex containers también */
+  /* Los enlaces también son flex para centrar iconos/texto si los tuviera */
     display: flex;
     align-items: center;
     padding: 0.5rem;
@@ -93,7 +93,7 @@ body {
     border-radius: 4px;
 }
 
-/* Estilo para el título de productos */
+/* Título 'Productos': centrado, grande y con una lineita decorativa para que destaque */
 .titulo-productos {
     text-align: center;
     font-size: 2.5rem;
@@ -116,7 +116,7 @@ body {
     background-color: #333;
 }
 
-/* Estilos para la grid de productos */
+/* Grid de productos: uso flex-wrap para que se hagan filas y gap para separar las cards */
 .productos-grid {
     display: flex;
     flex-wrap: wrap;
@@ -157,9 +157,9 @@ body {
     margin: 0;
 }
 
-/* Ajustes responsive para logo y menu*/
+/* Ajustes responsive para logo y menú */
 @media (max-width: 600px) {
-    /* En moviles el clamp ya ajusta, pero aseguramos buena visibilidad */
+  /* En móviles: reduzco el logo y hago que cada producto ocupe todo el ancho */
     .empresa-logo { 
         width: clamp(64px, 20vw, 100px); 
     }
@@ -169,8 +169,8 @@ body {
         min-width: unset;
     }
 
-    /* En pantallas pequeñas apilamos el menú verticalmente y cada enlace ocupa todo el ancho */
-    .menu-lista { 
+  /* En pantallas pequeñas apilo el menú y cada enlace ocupa todo el ancho para facilitar toque */
+  .menu-lista { 
         padding: 0.4rem 0;
         gap: 0;
         flex-direction: column;
@@ -190,28 +190,27 @@ body {
         border-top: 1px solid rgba(255,255,255,0.08);
     }
 }
-}
 
-/* Mejoras de accesibilidad y foco */
+/* Accesibilidad: muestro un outline claro cuando un enlace del menú tiene foco */
 .menu-lista a:focus{
     outline: 2px solid #fff;
     outline-offset: 2px;
 }
 
-/*CARRUSEL*/
+/* Carrusel: estilos para el slideshow (imágenes que van cambiando) */
 
 * {box-sizing: border-box}
 .mySlides {display: none}
 img {vertical-align: middle;}
 
-/* Slideshow container */
+/* Contenedor del slideshow: mantengo el slideshow centrado */
 .slideshow-container {
   max-width: auto;
   position: relative;
   margin: auto;
 }
 
-/* botones para avanzar o retroceder */
+/* Botones prev/next: posicionados verticalmente al centro y con padding para ser clickeables */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -227,18 +226,18 @@ img {vertical-align: middle;}
   user-select: none;
 }
 
-/* Posicion del boton */
+/* Posición del botón 'next' (lado derecho) */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* Cambio de color al pasar con el mouse */
+/* Hover: oscurezco el fondo del botón para indicar que se puede presionar */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Texto de la imagen*/
+/* Texto/superposición en la imagen: pequeño y legible sobre la slide */
 .text {
   color: #f2f2f2;
   
@@ -250,7 +249,7 @@ img {vertical-align: middle;}
   text-align: center;
 }
 
-/* Numero en la imagen (1/5) */
+/* Número de slide (ej: 1/5) mostrado en la esquina */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -259,7 +258,7 @@ img {vertical-align: middle;}
   top: 0;
 }
 
-/* Indicadores */
+/* Dots: indicadores que muestran qué slide está activo */
 .dot {
   cursor: pointer;
   height: 15px;
@@ -275,7 +274,7 @@ img {vertical-align: middle;}
   background-color: #717171;
 }
 
-/* Fading */
+/* Efecto fade entre slides */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -287,7 +286,7 @@ img {vertical-align: middle;}
 }
 
 
-/* Responsive del carrusel */
+/* Responsive del carrusel: en pantallas súper pequeñas reduzco fuentes de botones/texto */
 @media only screen and (max-width: 300px) {
  .prev, .next,.text {font-size: 11px}
 }
@@ -295,7 +294,7 @@ img {vertical-align: middle;}
 
 
 
-/*Contenedor Amarillo*/
+/* Caja amarilla: sección destacada para mensajes (tipo banner) */
 .boxConteiner{
   height: 120px;
   width: auto;
@@ -310,16 +309,14 @@ img {vertical-align: middle;}
 
 }
 
-/*Responsive del contenedor amariilo*/
-
+/* Responsive de la caja amarilla: reduzco texto en móviles */
 @media only screen and (max-width: 600px) {
   .boxConteiner{font-size: 14px}
   .texBox {font-size: 14px;}
 
 }
 
-/*Contenedor Footer*/
-  
+/* Footer: diseño en 3 columnas con fondo oscuro y logo */
 .empresa-footer{
   max-height: 350px;
   min-height: 120px;
@@ -333,14 +330,13 @@ img {vertical-align: middle;}
 
 }
 
-/*Tamaño Maximo de las columnas en el footer*/
+/* Columnas del footer: ancho máximo para cada columna */
 .footer-col {
   width: 250px; 
 
 }
 
-/*Responsive del Footer*/
-
+/* Footer responsive: ajusto tamaño en pantallas pequeñas para que quepa todo */
 @media only screen and (max-width: 600px) {
   .empresa-footer{font-size: 08px;}
   
