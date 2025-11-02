@@ -565,6 +565,13 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
+.imgCar{
+  height: 100vh;
+  width: auto;
+
+}
+
+
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
