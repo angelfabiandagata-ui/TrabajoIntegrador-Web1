@@ -93,10 +93,82 @@ body {
     border-radius: 4px;
 }
 
+/* Estilo para el título de productos */
+.titulo-productos {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titulo-productos::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #333;
+}
+
+/* Estilos para la grid de productos */
+.productos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.producto-item {
+    flex: 0 1 calc(33.333% - 2rem);
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.producto-item:hover {
+    transform: translateY(-5px);
+}
+
+.producto-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.producto-item p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+}
+
 /* Ajustes responsive para logo y menu*/
 @media (max-width: 600px) {
     /* En moviles el clamp ya ajusta, pero aseguramos buena visibilidad */
-    .empresa-logo { width: clamp(64px, 20vw, 100px); }
+    .empresa-logo { 
+        width: clamp(64px, 20vw, 100px); 
+    }
+    
+    .producto-item {
+        flex: 0 1 100%;
+        min-width: unset;
+    }
+
     /* En pantallas pequeñas apilamos el menú verticalmente y cada enlace ocupa todo el ancho */
     .menu-lista { 
         padding: 0.4rem 0;
@@ -104,7 +176,11 @@ body {
         flex-direction: column;
         align-items: stretch;
     }
-    .menu-lista li { padding: 0; }
+    
+    .menu-lista li { 
+        padding: 0; 
+    }
+    
     .menu-lista a { 
         font-size: 1rem; 
         padding: 0.75rem 1rem; 
@@ -113,6 +189,7 @@ body {
         width: 100%;
         border-top: 1px solid rgba(255,255,255,0.08);
     }
+}
 }
 
 /* Mejoras de accesibilidad y foco */
