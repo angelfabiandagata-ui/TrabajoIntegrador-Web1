@@ -22,8 +22,38 @@
     </nav>
 
     <main class="container">
-        <h2>Contacto</h2>
-        <p>Aquí va la información de contacto.</p>
+        <div class="formulario-contacto">
+            <h2>Contacto</h2>
+            <p>Complete el formulario para ponerse en contacto con nosotros:</p>
+            
+            <div id="mensajeError" class="mensaje-error"></div>
+            
+            <form id="formularioContacto" novalidate>
+                <div class="campo-formulario">
+                    <label for="nombre">Nombre: *</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                
+                <div class="campo-formulario">
+                    <label for="email">Email: *</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                
+                <div class="campo-formulario">
+                    <label for="telefono">Teléfono: *</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                
+                <div class="campo-formulario">
+                    <label for="mensaje">Mensaje: *</label>
+                    <textarea id="mensaje" name="mensaje"></textarea>
+                </div>
+                
+                <button type="submit" class="boton-enviar">Enviar</button>
+            </form>
+            
+            <div id="datosEnviados" class="datos-enviados"></div>
+        </div>
     </main>
 
     <footer class="empresa-footer">
@@ -60,7 +90,7 @@
         </div>
     </footer>
 
-
+    <script src="../js/contacto.js"></script>
 </body>
 </html>
 
