@@ -629,6 +629,8 @@ text-align:center
 }
 
 .imgCar{
+
+
   height: 100vh;
   width: auto;
 
@@ -646,6 +648,14 @@ text-align:center
  .prev, .next,.text {font-size: 11px}
 }
 
+/* Responsive de las imagenes y el contenedor */
+
+@media only screen and (max-width: 768px) {
+    .slides, .imgCar {
+        height: 60vw; 
+        width: 100%;
+    }
+}
 
 
 
