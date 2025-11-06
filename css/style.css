@@ -535,14 +535,18 @@ body {
     outline-offset: 2px;
 }
 
-/* Carrusel: estilos para el slideshow (imágenes que van cambiando) */
+/* Carrusel (imagenes que van cambiando) */
 
 * {box-sizing: border-box}
-.mySlides {display: none}
+.slides {display: none}
 img {vertical-align: middle;}
 
-/* Contenedor del slideshow: mantengo el slideshow centrado */
-.slideshow-container {
+
+
+
+
+/* Contenedor del Carrusel: lo mantenemos centrado */
+.carrusel-container {
   max-width: auto;
   position: relative;
   margin: auto;
@@ -594,6 +598,11 @@ img {vertical-align: middle;}
   padding: 8px 12px;
   position: absolute;
   top: 0;
+}
+
+.botonesCarrusel{
+text-align:center
+
 }
 
 /* Dots: indicadores que muestran qué slide está activo */
