@@ -28,47 +28,26 @@
     </nav>
     
     <div class="carrusel-container">
-
-        <div class="slides fade">
-            <div class="numbertext">1 / 5</div>
-            <img class="imgCar" src="./imagenes/carrusel-1.jpeg" style=" width:100%">
-            <div class="text">Dulzura</div>
+        <div class="slides fade" id="current-slide">
+            <div class="numbertext" id="slide-number">1 / 5</div>
+            <img class="imgCar" id="slide-img" 
+                 src="./imagenes/carrusel-1.jpeg" 
+                 alt="Imagen de carrusel">
         </div>
-        <div class="slides fade">
-             <div class="numbertext">2 / 5</div>
-             <img class="imgCar" src="./imagenes/carrusel-2.jpg" style="width:100%">
-             <div class="text">Técnica</div>
-        </div>
-
-         <div class="slides fade">
-            <div class="numbertext">3 / 5</div>
-             <img class="imgCar" src="./imagenes/carrusel-3.jpg" style="width:100%">
-             <div class="text">Profesionalismo</div>
-         </div>
-        <div class="slides fade">
-            <div class="numbertext">4 / 5</div>
-            <img class="imgCar" src="./imagenes/carrusel-4.jpeg" style="width:100%">
-            <div class="text">Dedicación</div>
-        </div>
-        <div class="slides fade">
-             <div class="numbertext">5 / 5</div>
-             <img class="imgCar" src="./imagenes/carrusel-5.jpg" style="width:100%">
-             <div class="text">Amor</div>
-        </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a> <!--Desde aca manejamos el evento para ir a la imagen anterior-->
-    <a class="next" onclick="plusSlides(1)">❯</a>  <!--Desde aca manejamos el evento para ir a la imagen posterior-->
-
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a><!--Desde aca manejamos el evento para ir a la imagen anterior-->
+        <a class="next" onclick="plusSlides(1)">❯</a><!--Desde aca manejamos el evento para ir a la imagen posterior-->
     </div>
-    <br>
 
     <div class="botonesCarrusel">
-            <span class="dot" onclick="currentSlide(1)"></span>  <!--Botones-->
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-        </div>
+        <!-- Botones -->
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
 
 
     <div class= "masVendidos">

@@ -537,124 +537,105 @@ body {
 }
 
 /* Carrusel (imagenes que van cambiando) */
-
 * {box-sizing: border-box}
-.slides {display: none}
 img {vertical-align: middle;}
 
-
-
-
-
-/* Contenedor del Carrusel: lo mantenemos centrado */
+/* --- Estilos Clave para Visibilidad y Tamaño --- */
+        
 .carrusel-container {
-  max-width: auto;
-  position: relative;
-  margin: auto;
-}
+    max-width: auto;
+    height: 100vh; 
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
 
-/* Botones prev/next: posicionados verticalmente al centro y con padding para ser clickeables */
+.slides {
+
+    height: 100%;
+    width: 100%;
+  }
+
+  .imgCar {
+    height: 100%; 
+    width: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el area */
+  }
+        
+/* Estilos de Botones, numero, y puntos */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+  }
 
-/* Posición del botón 'next' (lado derecho) */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+  /* Posición del botón 'next' (lado derecho) */
+  .next { right: 0; }
 
-/* Hover: oscurezco el fondo del botón para indicar que se puede presionar */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
+  /* Hover: oscurezco el fondo del botón para indicar que se puede presionar */
+  .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
 
-/* Texto/superposición en la imagen: pequeño y legible sobre la slide */
-.text {
-  color: #f2f2f2;
-  
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+  /* Numero de slide (ej: 1/5) mostrado en la esquina */
 
-/* Numero de slide (ej: 1/5) mostrado en la esquina */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.7);
+ }
 
-.botonesCarrusel{
-text-align:center
-
-}
+.botonesCarrusel { text-align: center; margin-top: 10px; }
 
 /* Dots: indicadores que muestran que slide esta activo */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
-
 .active, .dot:hover {
-  background-color: #717171;
-}
+    background-color: #717171;
+ }
 
-/* Efecto fade entre slides */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-.imgCar{
-
-
-  height: 100vh;
-  width: auto;
-
-}
-
-
+  /* Efecto fade */
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
+/*Responsive del carrusel*/
 
-/* Responsive del carrusel: en pantallas súper pequeñas reduzco fuentes de botones/texto */
-@media only screen and (max-width: 300px) {
- .prev, .next,.text {font-size: 11px}
+ @media only screen and (max-width: 768px) {
+.carrusel-container {
+    height: 80vw; 
+    margin: 10px auto;
 }
+ }
 
-/* Responsive de las imagenes y el contenedor */
-
-@media only screen and (max-width: 768px) {
-    .slides, .imgCar {
-        height: 60vw; 
-        width: 100%;
-    }
+/* En pantallas de movil pequeñas, podemos reducir mas el tamaño */
+@media only screen and (max-width: 480px) {
+.carrusel-container {height: 90vw;}
 }
 
 

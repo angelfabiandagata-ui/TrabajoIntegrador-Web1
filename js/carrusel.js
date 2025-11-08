@@ -1,45 +1,60 @@
-/*Carrusel*/
+//Carrusel
 
+   
 //Array
 const carouselData = [
-    { title: 'Dulzura', src: './img/carrusel-1.jpeg' }, 
-    { title: 'Técnica', src: './img/carrusel-2.jpg' },
-    { title: 'Profesionalismo', src: './img/carrusel-3.jpg' },
-    { title: 'Dedicación', src: './img/carrusel-4.jpeg' },
-    { title: 'Amor', src: './img/carrusel-5.jpg' }
+    { src: './imagenes/carrusel-1.jpeg' }, 
+    { src: './imagenes/carrusel-2.jpg' },
+    { src: './imagenes/carrusel-3.jpg' },
+    { src: './imagenes/carrusel-4.jpeg' },
+    { src: './imagenes/carrusel-5.jpg' }
 ];
 
-
-let slideIndex = 1; //Declara e inicializa el carrusel
-carrusel(slideIndex);
-
+        
+let slideIndex = 1; //Comienzo del Carrusel
 
 function plusSlides(n) { 
-  carrusel(slideIndex += n);
-}                               
-
-function currentSlide(n) {   
-  carrusel(slideIndex = n);
+    carrusel(slideIndex += n); //Incrementa/decrementa el indice y llama a la funcion principal
 }
 
-function carrusel(n) {  //Funcion principal
-  const numSlides = carouselData.length; 
-  let slides = document.getElementsByClassName("slides"); //Aca hacemos la conexion con los div de imagenes
-  let dots = document.getElementsByClassName("dot"); //Conexion con los botones de la parte inferior3
-  if (slides.length === 0) return; 
-
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-
-  for (i = 0; i < slides.length; i++) { //Aca nos aseguramos que las imagenes esten ocultas
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");//Con esto dejamos seleccionado el boton segun la imagen
-  }
-  slides[slideIndex-1].style.display = "block";  //Muestra la imagen Actual
-  if (dots.length > 0) {
-        // Usamos classList.add() para evitar problemas de espacios
-        dots[slideIndex-1].classList.add("active"); 
-  }
+function currentSlide(n) {  //// Funcion para ir a un slide especifico (llamada por los puntos)
+    carrusel(slideIndex = n);
 }
+
+
+// Función principal
+function carrusel(n) {
+    const numSlides = carouselData.length; 
+
+// Manejo del indice (vuelve a 1 si supera el limite, o al final si es menor a 1)
+    if (n > numSlides) {slideIndex = 1}    
+    if (n < 1) {slideIndex = numSlides}
+
+    const currentItemIndex = slideIndex - 1; 
+    const currentData = carouselData[currentItemIndex];
+
+
+// Obtiene los elementos del DOM que vamos a actualizar
+    const slideImg = document.getElementById("slide-img");
+    const slideNumberText = document.getElementById("slide-number");
+    let dots = document.getElementsByClassName("dot");
+
+// Actualizar imagen y numero
+    if (slideImg && slideNumberText) {
+        slideImg.src = currentData.src; 
+    slideNumberText.textContent = `${slideIndex} / ${numSlides}`;
+    }
+
+// Actualizar puntos
+    for (let i = 0; i < dots.length; i++) {
+         dots[i].classList.remove("active");
+    }
+            
+    if (dots.length > 0) {
+        dots[currentItemIndex].classList.add("active"); 
+    }
+        }
+// Inicializacion: Asegura que el carrusel se muestre correctamente al cargar la pagina
+    document.addEventListener('DOMContentLoaded', (event) => {
+      carrusel(slideIndex);
+    });
