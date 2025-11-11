@@ -31,22 +31,22 @@
             <form id="formularioContacto" novalidate>
                 <div class="campo-formulario">
                     <label for="nombre">Nombre: *</label>
-                    <input type="text" id="nombre" name="nombre">
+                    <input type="text" id="nombre" name="nombre" required maxlength="50">
                 </div>
                 
                 <div class="campo-formulario">
                     <label for="email">Email: *</label>
-                    <input type="text" id="email" name="email">
+                    <input type="email" id="email" name="email" required maxlength="100">
                 </div>
                 
                 <div class="campo-formulario">
                     <label for="telefono">Teléfono: *</label>
-                    <input type="text" id="telefono" name="telefono">
+                    <input type="tel" id="telefono" name="telefono" required maxlength="15">
                 </div>
                 
                 <div class="campo-formulario">
                     <label for="mensaje">Mensaje: *</label>
-                    <textarea id="mensaje" name="mensaje"></textarea>
+                    <textarea id="mensaje" name="mensaje" required maxlength="500"></textarea>
                 </div>
                 
                 <button type="submit" class="boton-enviar">Enviar</button>

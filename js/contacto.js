@@ -21,51 +21,33 @@ formulario.addEventListener('submit', function(evento) {
         errores.push('El nombre no puede tener mas de 50 caracteres');
     }
     
-    // Valido email (obligatorio y formato correcto)
+    // Valido email (obligatorio, longitud máxima y formato con expresión regular)
     if (email === '') {
         errores.push('El email es obligatorio');
+    } else if (email.length > 100) {
+        errores.push('El email no puede tener mas de 100 caracteres');
     } else {
-        // Verifico que tenga @ y punto
-        let tieneArroba = false;
-        let tienePunto = false;
-        let posicionArroba = -1;
-        let posicionPunto = -1;
+        // Expresión regular para validar email
+        // Formato: texto@dominio.extension
+        let pat_mail = /^\w+@\w+(\.\w{2,4})+$/;
         
-        // Busco el @ y el punto
-        for (let i = 0; i < email.length; i++) {
-            if (email[i] === '@') {
-                tieneArroba = true;
-                posicionArroba = i;
-            }
-            if (email[i] === '.') {
-                tienePunto = true;
-                posicionPunto = i;
-            }
-        }
-        
-        // Verifico que tenga @ y punto  y que el punto este despues del @
-        if (!tieneArroba || !tienePunto || posicionPunto < posicionArroba) {
+        if (!pat_mail.test(email)) {
             errores.push('El email debe tener un formato valido (ejemplo@correo.com)');
         }
     }
     
-    // Valido telefono 
+    // Valido telefono (obligatorio, longitud y formato con expresión regular)
     if (telefono === '') {
         errores.push('El telefono es obligatorio');
+    } else if (telefono.length > 15) {
+        errores.push('El telefono no puede tener mas de 15 caracteres');
     } else {
-        // Verifico que solo tenga numeros
-        let soloNumeros = true;
-        for (let i = 0; i < telefono.length; i++) {
-            if (telefono[i] < '0' || telefono[i] > '9') {
-                soloNumeros = false;
-            }
-        }
-
-        // Verifico longitud y que solo tenga numeros
-        if (!soloNumeros) {
-            errores.push('El telefono solo puede contener numeros');
-        } else if (telefono.length < 9 || telefono.length > 15) {
-            errores.push('El telefono debe tener entre 9 y 15 dígitos');
+        // Expresión regular para validar teléfono
+        // Acepta números con opcional + al inicio y espacios/guiones como separadores
+        let pat_tel = /^[\+]?\d{1,4}[\s\-]?\d{1,4}[\s\-]?\d{1,4}[\s\-]?\d{0,4}$/;
+        
+        if (!pat_tel.test(telefono)) {
+            errores.push('El telefono debe tener un formato valido (ejemplo: +34600123456 o 600123456)');
         }
     }
     
