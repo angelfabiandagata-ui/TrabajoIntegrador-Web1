@@ -21,15 +21,15 @@ formulario.addEventListener('submit', function(evento) {
         errores.push('El nombre no puede tener mas de 50 caracteres');
     }
     
-    // Valido email (obligatorio, longitud máxima y formato con expresión regular)
+    // Valido email 
     if (email === '') {
         errores.push('El email es obligatorio');
     } else if (email.length > 100) {
         errores.push('El email no puede tener mas de 100 caracteres');
     } else {
-        // Expresión regular para validar email
-        // Formato: texto@dominio.extension
-        let pat_mail = /^\w+@\w+(\.\w{2,4})+$/;
+        // Expresion regular para validar email
+        // Acepta letras, numeros, punto, guion y guion bajo
+        let pat_mail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         
         if (!pat_mail.test(email)) {
             errores.push('El email debe tener un formato valido (ejemplo@correo.com)');
@@ -42,12 +42,12 @@ formulario.addEventListener('submit', function(evento) {
     } else if (telefono.length > 15) {
         errores.push('El telefono no puede tener mas de 15 caracteres');
     } else {
-        // Expresión regular para validar teléfono
-        // Acepta números con opcional + al inicio y espacios/guiones como separadores
-        let pat_tel = /^[\+]?\d{1,4}[\s\-]?\d{1,4}[\s\-]?\d{1,4}[\s\-]?\d{0,4}$/;
+      
+        // Acepta exactamente 10 digitos, puede tener espacios o guiones pero debe tener 10 numeros
+        let pat_tel = /^\d{10}$/;
         
         if (!pat_tel.test(telefono)) {
-            errores.push('El telefono debe tener un formato valido (ejemplo: +34600123456 o 600123456)');
+            errores.push('El telefono debe tener exactamente 10 digitos');
         }
     }
     
